@@ -18,12 +18,18 @@ class ExperimentInfo:
         else:
             return fr'{self.label}$={value}$ {self.unit}'
 
+    def FormatColBar(self):
+        if not self.formattable or self.unit == '':
+            return self.label
+        else:
+            return fr'{self.label} / {self.unit}'
+
 
 Concentration = ExperimentInfo(name='Concentration', label=r'$W_0$', unit='', sciNot=False, formattable=True)
 Mass          = ExperimentInfo(name='Mass', label=r'M', unit=r'$M_\odot$', sciNot=True, formattable=True)
 HalfMass      = ExperimentInfo(name='HalfMass', label=r'$r_{\frac{1}{2}}$', unit=r'$pc$', sciNot=False, formattable=True)
 #Vx            = ExperimentInfo(name='Vx', label=r'$V_x$', unit=r'$\,km\,s^{-1}$', sciNot=False, formattable=True)
-Periapsis     = ExperimentInfo(name='Periapsis', label=r'$r_p$', unit='$kpc$', scinot=False, formattable=True)
+Periapsis     = ExperimentInfo(name='Periapsis', label=r'$r_p$', unit='$kpc$', sciNot=False, formattable=True)
 BinaryFrac    = ExperimentInfo(name='BinaryFrac', label=r'$F_{bin}$', unit='', sciNot=False, formattable=True)
 GalacticMass  = ExperimentInfo(name='GalacticMass', label=r'$M_d$', unit='$M_\odot$', sciNot=True, formattable=True)
 
